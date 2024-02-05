@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="min.css" />
+  </head>
+  <body>
+    <table>
+      <thead>
+        <td>Identity Provider</td>
+        <td>Login</td>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <script>
+      const tbody = document.getElementById("tbody");
+
+      const provider = [
+        { name: "Auth0", logo: "", loginFn: () => {} },
+        { name: "Zitadel", logo: "", loginFn: () => {} },
+        { name: "Google", logo: "", loginFn: () => {} },
+        { name: "Firebase", logo: "", loginFn: () => {} },
+        { name: "Github", logo: "", loginFn: () => {} },
+        { name: "Github", logo: "", loginFn: () => {} },
+      ];
+
+      provider.forEach((p) => {
+        const tr = document.createElement("tr");
+        const name = document.createElement("td");
+        const login = document.createElement("td");
+        const loginBtn = document.createElement("button");
+        name.textContent = p.name;
+        loginBtn.textContent = "login";
+        loginBtn.addEventListener("click", p.loginFn);
+        login.appendChild(loginBtn);
+        tr.appendChild(name);
+        tr.appendChild(login);
+        tbody.appendChild(tr);
+      });
+      console.log("Test");
+    </script>
+  </body>
+</html>
