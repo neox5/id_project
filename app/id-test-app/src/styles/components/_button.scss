@@ -1,0 +1,18 @@
+button {
+  padding: 0.5rem 1rem;
+  background-color: #0048ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+
+  &.danger {
+    background-color: #ff1e00;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
