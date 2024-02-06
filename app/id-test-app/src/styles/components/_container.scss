@@ -1,0 +1,26 @@
+@mixin container($max-width: 1200px, $padding: 20px, $breakpoints: null) {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $padding;
+  padding-right: $padding;
+
+  @if $breakpoints != null {
+    @each $breakpoint, $value in $breakpoints {
+      @media (max-width: $breakpoint) {
+        max-width: map-get($value, width);
+        padding-left: map-get($value, padding);
+        padding-right: map-get($value, padding);
+      }
+    }
+  }
+}
+
+.container {
+  @include container($max-width: 1200px, $padding: 20px, $breakpoints: (
+    768px: (width: 100%, padding: 10px),
+    1024px: (width: 100%, padding: 15px)
+  ));
+}
+
